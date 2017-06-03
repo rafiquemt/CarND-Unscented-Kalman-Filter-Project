@@ -3,4 +3,8 @@
 
 # build files
 build/
+ide_profiles/XCode/CMake*
+ide_profiles/XCode/Debug
+ide_profiles/XCode/*build
+ide_profiles/XCode/*.xc*
 .vscode

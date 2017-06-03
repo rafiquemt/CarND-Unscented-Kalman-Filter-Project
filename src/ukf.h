@@ -34,6 +34,7 @@ public:
 
   ///* time when the state is true, in us
   long long time_us_;
+  long long previous_timestamp_;
 
   ///* Process noise standard deviation longitudinal acceleration in m/s^2
   double std_a_;
@@ -58,6 +59,10 @@ public:
 
   ///* Weights of sigma points
   VectorXd weights_;
+  
+  ///* Noise for laser & radar
+  MatrixXd R_laser_;
+  MatrixXd R_radar_;
 
   ///* State dimension
   int n_x_;
@@ -108,6 +113,8 @@ public:
    * @param meas_package The measurement at k+1
    */
   void UpdateRadar(MeasurementPackage meas_package);
+
+  void printMatrix(const MatrixXd& m, const char* name);
 };
 
 #endif /* UKF_H */
