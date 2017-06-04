@@ -79,6 +79,16 @@ public:
   ///* the current NIS for laser
   double NIS_laser_;
 
+  /// * The laser NIS threshold
+  double NIS_laser_threshold_;
+  double NIS_radar_threshold_;
+
+  int laser_total_ = 0;
+  double laser_above_nis_ = 0;
+
+  int radar_total_ = 0;
+  double radar_above_nis_ = 0;
+
   /**
    * Constructor
    */
@@ -115,6 +125,12 @@ public:
   void UpdateRadar(MeasurementPackage meas_package);
 
   void printMatrix(const MatrixXd& m, const char* name);
+
+  double normalizeToPi(double ang);
+
+  double getLaserNIS();
+
+  double getRadarNIS();
 };
 
 #endif /* UKF_H */

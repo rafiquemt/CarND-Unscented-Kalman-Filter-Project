@@ -231,7 +231,8 @@ int main(int argc, char* argv[]) {
   if (in_file_.is_open()) {
     in_file_.close();
   }
-
+  cout << "Laser %diff above threshold: " << ukf.laser_above_nis_ / ukf.laser_total_ << endl;
+  cout << "Radar %diff above threshold: " << ukf.radar_above_nis_ / ukf.radar_total_ << endl;
   cout << "Done!" << endl;
   return 0;
 }
